@@ -1,5 +1,3 @@
-import numpy as geek
-
 # STACKS AND ITS APPLICATION
 Size = 7
 Stack = [0] * Size
@@ -27,11 +25,17 @@ def Pop():
         print("The stack is in underflow condition.")
 
 def Display():
-    Value = Stack[geek.nonzero(Stack)]
-    print(Value)
+    if Top == -1:
+        print("The Stack is empty.")
+
+    else:
+        print("The contents of the stack is:  ")
+        for i in Stack[:Top+1]:
+            print(i)
+    
 
 def MainMenu():
-    global UserInput
+    global UserInput, El
     while True:
         print("")
         print("""***************************************
@@ -55,7 +59,12 @@ def MainMenu():
             Display()
 
         if UserInput == 4:
-            break
+            Exit = input("Do you want to close STACK APPLICATION? y/n: ")
+            if Exit == 'y':
+                print("\nThank you for using STACK APPLICATION!")
+                break
+            else: 
+                return MainMenu()
         
 # Start the Program
 MainMenu()
